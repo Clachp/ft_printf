@@ -1,57 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_v1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:35:05 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/31 20:38:57 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/05/31 19:09:42 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "src/printf.h"
 
-size_t	ft_print_params(const char c, va_list params)
-{
-		if (c == '%')
-			return (ft_putchar(c));	
-		else if (c == 'c')
-			return (ft_putchar(va_arg(params, int)));
-		else if (c == 'i' || c == 'd' || c == 'u')
-			return (ft_putnbr(va_arg(params, int), c));
-		else if (c == 's')	
-			return (ft_putstr(va_arg(params, char *)));
-		else if (c == 'x' || c == 'X')
-			return (ft_puthexa(va_arg(params, long int), c));
-		else if (c == 'p')
-		{
-			write (1, "0x", 2);
-			return (ft_putptr(va_arg(params, unsigned long long int) + 2));
-		}		
-		return (0);
-}
-
 int	ft_printf(const char *format, ...)
 {
-	int		i;
-	int		l;
 	va_list	params;
+	int		i;
 
-	i = 0;
-	l = 0;	
 	va_start(params, format);
+	i = 0;
 	while (format && format[i])
 	{
-		if (format[i] == '%' && format[i + 1] != '\0')
+		if (format[i] == '%')
 		{
 			i++;
-			l += ft_print_params(format[i], params);
+			if (format[i] == '%')
+				write(1, "%", 1);
+			else if (format[i] == 'c')
+				ft_putchar(va_arg(params, int));
+			else if (format[i] == 'i' || format[i] == 'd' || format[i] == 'u')
+				ft_putnbr(va_arg(params, int), format[i]);
+			else if (format[i] == 's')
+				ft_putstr(va_arg(params, char *));
+			else if (format[i] == 'x' || format[i] == 'X')
+				ft_puthexa(va_arg(params, long int), format[i]);
+			else if (format[i] == 'p')
+			{
+				write (1, "0x", 2);
+				ft_putptr(va_arg(params, unsigned long long int));
+			}		
 		}
 		else
-			l += ft_putchar(format[i]);
+			ft_putchar(format[i]);
 		i++;
 	}
-	va_end(params); 
 	return (i);
 }
+

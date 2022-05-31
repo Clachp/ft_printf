@@ -4,22 +4,30 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c ft_.c
+SRCS = ft_printf.c \
+src/ft_hexa_len.c \
+src/ft_putchar.c \
+src/ft_puthexa.c \
+src/ft_putnbr.c \
+src/ft_putptr.c \
+src/ft_putstr.c \
+src/ft_strlen.c
 
 OBJS = $(SRCS:.c=.o)
+
+RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $^
-	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	${RM} $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	${RM} $(NAME)
 
-re: fclean all
+re: fclean ${NAME}
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
