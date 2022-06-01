@@ -6,11 +6,11 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:43:50 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/30 16:34:03 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 16:00:43 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_putchar(char c)
 {

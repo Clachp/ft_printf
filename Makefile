@@ -5,13 +5,12 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c \
-src/ft_hexa_len.c \
 src/ft_putchar.c \
 src/ft_puthexa.c \
 src/ft_putnbr.c \
 src/ft_putptr.c \
 src/ft_putstr.c \
-src/ft_strlen.c
+src/ft_len_functions.c
 
 OBJS = $(SRCS:.c=.o)
 

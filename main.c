@@ -6,36 +6,23 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:21:05 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/31 20:56:09 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 14:34:21 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "src/printf.h"
+#include "src/ft_printf.h"
+#include <limits.h>
 
 int main (void)
 {
-	void	*voi;
-	voi = malloc(sizeof(int));
-	int a = -895246;
-	int i;
-	int j;
-	char str[] = "Chat perche !";
-	printf("Je teste printf avec l'int a = %i.\n", a);
-	ft_printf("Je teste ft_printf avec l'int a = %i.\n", a);
-	write(1, "hexadecimal\n", 13);
-	printf("Je teste printf avec a en hexadecimal : %X.\n", a);
-	ft_printf("Je teste ft_printf avec a en hexadecimal : %X.\n", a);
-	write(1, "unsigned int\n", 14);
-	printf("printf avec a en unsigned int : %u.\n", a);
-	ft_printf("ft_printf avec a en unsigned int : %u.\n", a);
-	write(1, "pointeur\n", 13);
-	printf("Je teste printf avec pointeur void : %p.\n", voi);
-	ft_printf("Je teste ft_printf avec pointeur void : %p.\n", voi);
-	write(1, "string\n", 8);
-	i = printf("Je teste printf avec la string : %s.\n", str);
-	j = printf("Je teste ft_printf avec la string : %s.\n", str);
-	printf("i avec printf : %d.\nj avec printf : %d.\n", i, j);
-	ft_printf("i avec ft_printf : %d.\nj avec ft_printf : %d.\n", i, j);
-	free(voi);
+	/*void	*voi;
+	voi = malloc(sizeof(int));*/
+	int ft_i = ft_printf(" %x %x %x %x %x %x %x\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	int i = printf(" %x %x %lx %lx %lx %x %x\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	printf("ft_i = %d\ni = %d\n", ft_i, i); 
+	int ft_j = ft_printf("%x %x %x %x %x %x %x %x\n", 895, INT_MAX, INT_MIN, LONG_MIN, ULONG_MAX, 0, -42, INT_MAX);
+	int j = printf("%x %x %x %x %x %x %x %x\n",  885, INT_MAX, INT_MIN, LONG_MIN, ULONG_MAX, 0, -42, INT_MAX);
+	printf("ft_j = %d\ni = %d\n", ft_j, j); 
+	//free(voi);
 	return (0);
 }

@@ -6,33 +6,24 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 17:41:21 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/31 20:23:13 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 16:01:15 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../ft_printf.h"
 
-size_t	ft_puthexa(long int n, char x)
+size_t	ft_puthexa(unsigned long long int n, char x)
 {
 	char	*base;
+	size_t	len;
 
+	len = 0;
 	base = "0123456789ABCDEF";
 	if (x == 'x')
 		base = "0123456789abcdef";
 	if (n >= 16)
-		ft_puthexa((n / 16), x);
+		len += ft_puthexa((n / 16), x);
+	len++;
 	ft_putchar(base[n % 16]);
-	return (ft_hexa_len(n));
-	
+	return (len);
 }
-/*
-int main (void)
-{
-	int i;
-	int h = 897;
-	
-	printf("%X\n", h);
-	i = ft_puthexa(h, 'X');
-	printf ("%d\n", i);
-	return (0);
-}*/

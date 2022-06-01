@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_len_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:10:43 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/30 15:07:24 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 15:40:00 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -23,10 +23,34 @@ size_t	ft_strlen(const char *str)
 		l++;
 	return (l);
 }
-/*
-int	main (void)
+
+size_t	ft_nbrlen(long int n)
 {
-	char str[] = "string";
-	printf("%ld\n", strlen(str));
-	printf("%ld\n", ft_strlen(str));
-}*/
+	size_t	l;
+
+	l = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		l++;
+	while (n)
+	{
+		n /= 10;
+		l++;
+	}
+	return (l);
+}
+
+size_t	ft_hexa_len(unsigned long long int n)
+{
+	size_t	l;
+
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n /= 16;
+		l++;
+	}
+	return (l);
+}

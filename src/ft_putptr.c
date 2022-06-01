@@ -6,19 +6,19 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 19:22:33 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/31 20:24:10 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 16:01:35 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../ft_printf.h"
 
 size_t	ft_putptr(unsigned long long int n)
 {
-	char	*base;
-
-	base = "0123456789abcdef";
-	if (n >= 16)
-		ft_putptr(n / 16);
-	ft_putchar(base[n % 16]);
-    return (ft_hexa_len(n));
+	if (n == 0)
+	{
+		write (1, "(nil)", 5);
+		return (5);
+	}
+	write (1, "0x", 2);
+	return (ft_puthexa(n, 'x') + 2);
 }

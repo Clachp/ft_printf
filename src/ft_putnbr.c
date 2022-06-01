@@ -6,35 +6,20 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:08:33 by cchapon           #+#    #+#             */
-/*   Updated: 2022/05/31 20:19:41 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/01 16:01:21 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../ft_printf.h"
 
-size_t	ft_nbrlen(long int n)
+size_t	ft_putnbr(long int n, char f)
 {
-	size_t l;
+	char		c;
+	long int	len;
 
-	l = 0;
-	if (n == 0)
-		return (1); 
-	if (n < 0)
-		l = 1; 
-	while (n)
-	{
-		n /= 10;
-		l++;
-	}
-	return (l);
-}
-
-size_t	ft_putnbr(long int n, char flag)
-{
-	char	c;
-
-	if (flag == 'u')
+	if (f == 'u')
 		n = (unsigned int)n;
+	len = n;
 	if (n < 0)
 	{
 		write (1, "-", 1);
@@ -47,8 +32,8 @@ size_t	ft_putnbr(long int n, char flag)
 	}
 	else
 	{
-		ft_putnbr((n / 10), flag);
-		ft_putnbr((n % 10), flag);
+		ft_putnbr((n / 10), f);
+		ft_putnbr((n % 10), f);
 	}
-	return (ft_nbrlen(n));
+	return (ft_nbrlen(len));
 }
