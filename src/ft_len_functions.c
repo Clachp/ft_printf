@@ -6,7 +6,7 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 14:10:43 by cchapon           #+#    #+#             */
-/*   Updated: 2022/06/01 15:40:00 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/03 11:59:59 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ size_t	ft_nbrlen(long int n)
 	return (l);
 }
 
-size_t	ft_hexa_len(unsigned long long int n)
+size_t	ft_hexalen(unsigned long long int n)
 {
 	size_t	l;
 
+	l = 1;
 	if (n == 0)
 		return (1);
 	while (n > 0)

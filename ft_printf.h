@@ -6,7 +6,7 @@
 /*   By: cchapon <cchapon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:59:54 by cchapon           #+#    #+#             */
-/*   Updated: 2022/06/01 15:40:37 by cchapon          ###   ########.fr       */
+/*   Updated: 2022/06/03 11:59:54 by cchapon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_putnbr(long int n, char flag);
 size_t	ft_putstr(char *s);
 size_t	ft_puthexa(unsigned long long int n, char flag);
 size_t	ft_putptr(unsigned long long int n);
-size_t	ft_hexa_len(unsigned long long int n);
+size_t	ft_hexalen(unsigned long long int n);
 size_t	ft_strlen(const char *str);
 size_t	ft_nbrlen(long int n);
 
